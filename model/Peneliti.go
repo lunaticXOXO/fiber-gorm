@@ -7,6 +7,6 @@ type Peneliti struct {
 	Telephone       string         	`gorm:"type:varchar(255)" json:"telephone"`
 	Anggota         string         	`gorm:"type:varchar(255)" json:"anggota"`
 	RisetID         string         	`gorm:"type:varchar(255)" json:"risetid"`
-	RisetPenelitian RisetPenelitian `gorm:"foreignKey:RisetID;references:Idriset"`
+	RisetPenelitian RisetPenelitian `gorm:"foreignKey:RisetID;references:Idriset" json:"riset_penelitian"`
 
 }

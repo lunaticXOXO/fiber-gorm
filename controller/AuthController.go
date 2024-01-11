@@ -29,7 +29,7 @@ func ResetToken(c *fiber.Ctx){
 
 
 func GenerateToken(c *fiber.Ctx,user model.Users) (error,string) {
-	tokenExpiryTime := time.Now().Add(15 * time.Minute)
+	tokenExpiryTime := time.Now().Add(24 * time.Hour)
 
 	claims := &Claims{
 		Username: user.Username,

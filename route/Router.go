@@ -35,6 +35,9 @@ func Start(){
 	peneliti.Put("/:nidn",controller.Authenticate(controller.UpdatePeneliti,1))
 	peneliti.Delete("/:nidn",controller.Authenticate(controller.DeletePeneliti,1))
 	
-	
+	peneliti.Get("/joins_riset/:nidn",controller.Authenticate(controller.GetJoinRiset,1))
+	peneliti.Get("/specified/:nidn",controller.Authenticate(controller.GetSpecifiedColumn,1))
+	peneliti.Get("/specified_join/:nidn",controller.Authenticate(controller.GetSpecifiedJoin,1))
+
 	app.Listen(":8080")
 }
