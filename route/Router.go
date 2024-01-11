@@ -26,6 +26,7 @@ func Start(){
 	
 	riset.Get("/",controller.Authenticate(controller.ShowRiset,1))
 	riset.Post("/",controller.Authenticate(controller.CreateRiset,1))
+	riset.Get("/:idriset",controller.Authenticate(controller.ShowRisetID,1))
 	riset.Put("/:idriset",controller.Authenticate(controller.UpdateRiset,1))
 	riset.Delete("/:idriset",controller.Authenticate(controller.DeleteRiset,1))
 	
@@ -34,16 +35,6 @@ func Start(){
 	peneliti.Put("/:nidn",controller.Authenticate(controller.UpdatePeneliti,1))
 	peneliti.Delete("/:nidn",controller.Authenticate(controller.DeletePeneliti,1))
 	
-	// riset.Post("/",controller.CreateRiset)
-	// riset.Get("/",controller.ShowRiset)
-	// riset.Put("/:idriset",controller.UpdateRiset)
-	// riset.Delete("/:idriset",controller.DeleteRiset)
-
-	// peneliti.Post("/",controller.CreatePeneliti)
-	// peneliti.Get("/",controller.GetPeneliti)
-	// peneliti.Put("/:nidn",controller.UpdatePeneliti)
-	// peneliti.Delete("/:nidn",controller.DeletePeneliti)
-
-
+	
 	app.Listen(":8080")
 }

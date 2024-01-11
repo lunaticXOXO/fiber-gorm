@@ -36,8 +36,15 @@ func CreateRiset(c *fiber.Ctx) error {
 func ShowRisetID(c *fiber.Ctx) error {
 	var riset model.RisetPenelitian
 	idriset := c.Params("idriset")
-	model.DB.First(&riset,idriset)
-	return c.Status(fiber.StatusOK).JSON(&riset)
+
+	if err := model.DB.Where("idriset",idriset).First(&riset).Error; err != nil{
+		return c.Status(500).JSON(fiber.Map{
+			"message" : err.Error(),
+		})
+	}
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"data" : riset,
+	})
 }
 
 func UpdateRiset(c *fiber.Ctx) error {

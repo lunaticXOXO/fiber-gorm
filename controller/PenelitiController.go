@@ -39,6 +39,8 @@ func GetPeneliti(c *fiber.Ctx) error{
 	return c.Status(fiber.StatusOK).JSON(&peneliti)
 }
 
+ 
+
 
 func UpdatePeneliti(c *fiber.Ctx) error {
 	var peneliti model.Peneliti

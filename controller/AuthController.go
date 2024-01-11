@@ -39,7 +39,6 @@ func GenerateToken(c *fiber.Ctx,user model.Users) (error,string) {
 		},
 	}
 
-	fmt.Print("usertype claims : ",claims.Type)
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256,claims)
 	tokenString, err := token.SignedString(jwtKey)
 	if err != nil {
